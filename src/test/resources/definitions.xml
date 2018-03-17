@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_results xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://oval.mitre.org/XMLSchema/oval-results-5" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-results-5 oval-results-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd">
+    <generator>
+        <oval:product_name>cpe:/a:open-scap:oscap</oval:product_name>
+        <oval:schema_version>5.3</oval:schema_version>
+        <oval:timestamp>2018-02-02T15:18:11</oval:timestamp>
+    </generator>
+    <directives>
+        <definition_true reported="true" content="full"/>
+        <definition_false reported="true" content="full"/>
+        <definition_unknown reported="true" content="full"/>
+        <definition_error reported="true" content="full"/>
+        <definition_not_evaluated reported="true" content="full"/>
+        <definition_not_applicable reported="true" content="full"/>
+    </directives>
+    <oval_definitions xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:lin-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd">
+        <generator>
+            <oval:product_name>Debian</oval:product_name>
+            <oval:schema_version>5.3</oval:schema_version>
+            <oval:timestamp>2018-02-02T12:07:33.188-04:00</oval:timestamp>
+        </generator>
+        <definitions>
+            <definition id="oval:org.debian:def:20186521" version="1" class="vulnerability">
+                <metadata>
+                    <title>CVE-2018-6521</title>
+                    <affected family="unix">
+                        <platform>Debian GNU/Linux 8</platform>
+                        <product>simplesamlphp</product>
+                    </affected>
+                    <reference source="CVE" ref_id="CVE-2018-6521" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6521"/>
+                    <description></description>
+                    <debian xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+                        <date>2018-02-02</date>
+                        <moreinfo/>
+                    </debian>
+                </metadata>
+                <criteria comment="Release section">
+                    <criterion test_ref="oval:org.debian.oval:tst:1" comment="Debian 8 is installed"/>
+                    <criteria operator="OR" comment="Architecture section">
+                        <criteria comment="Architecture independent section">
+                            <criterion test_ref="oval:org.debian.oval:tst:2" comment="all architecture"/>
+                            <criterion test_ref="oval:org.debian.oval:tst:18371" comment="simplesamlphp DPKG is earlier than 0"/>
+                        </criteria>
+                    </criteria>
+                </criteria>
+            </definition>
+            <definition id="oval:org.debian:def:20166325" version="1" class="vulnerability">
+                <metadata>
+                    <title>CVE-2016-6325</title>
+                    <affected family="unix">
+                        <platform>Debian GNU/Linux 8</platform>
+                        <product>tomcat8</product>
+                    </affected>
+                    <reference source="CVE" ref_id="CVE-2016-6325" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6325"/>
+                    <description>The Tomcat package on Red Hat Enterprise Linux (RHEL) 5 through 7, JBoss Web Server 3.0, and JBoss EWS 2 uses weak permissions for (1) /etc/sysconfig/tomcat and (2) /etc/tomcat/tomcat.conf, which allows local users to gain privileges by leveraging membership in the tomcat group.</description>
+                    <debian xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+                        <date>2018-02-02</date>
+                        <moreinfo/>
+                    </debian>
+                </metadata>
+                <criteria comment="Release section">
+                    <criterion test_ref="oval:org.debian.oval:tst:1" comment="Debian 8 is installed"/>
+                    <criteria operator="OR" comment="Architecture section">
+                        <criteria comment="Architecture independent section">
+                            <criterion test_ref="oval:org.debian.oval:tst:2" comment="all architecture"/>
+                            <criterion test_ref="oval:org.debian.oval:tst:14326" comment="tomcat8 DPKG is earlier than 0"/>
+                        </criteria>
+                    </criteria>
+                </criteria>
+            </definition>
+        </definitions>
+    </oval_definitions>
+    <results>
+        <system>
+            <definitions>
+                <definition definition_id="oval:org.debian:def:20186521" result="false" version="1">
+                    <criteria operator="AND" result="false">
+                        <criterion test_ref="oval:org.debian.oval:tst:1" version="1" result="true"/>
+                        <criteria operator="OR" result="false">
+                            <criteria operator="AND" result="false">
+                                <criterion test_ref="oval:org.debian.oval:tst:2" version="1" result="true"/>
+                                <criterion test_ref="oval:org.debian.oval:tst:18371" version="1" result="false"/>
+                            </criteria>
+                        </criteria>
+                    </criteria>
+                </definition>
+                <definition definition_id="oval:org.debian:def:20186520" result="false" version="1">
+                    <criteria operator="AND" result="false">
+                        <criterion test_ref="oval:org.debian.oval:tst:1" version="1" result="true"/>
+                        <criteria operator="OR" result="false">
+                            <criteria operator="AND" result="false">
+                                <criterion test_ref="oval:org.debian.oval:tst:2" version="1" result="true"/>
+                                <criterion test_ref="oval:org.debian.oval:tst:18370" version="1" result="false"/>
+                            </criteria>
+                        </criteria>
+                    </criteria>
+                </definition>
+            </definitions>
+            <tests>
+                <test test_id="oval:org.debian.oval:tst:1" version="1" check="all" result="true">
+                    <tested_item item_id="1027241" result="true"/>
+                </test>
+                <test test_id="oval:org.debian.oval:tst:10" version="1" check="all" result="false"/>
+            </tests>
+        </system>
+    </results>
+</oval_results>
