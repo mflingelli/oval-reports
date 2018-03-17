@@ -17,7 +17,7 @@ public class MarkdownReportGenerator {
     }
 
     private void addDefinitions(StringBuilder builder, String title, List<Definition> definitions) {
-        builder.append("\n## " + title + " (" + definitions.size() + ")\n");
+        builder.append("\n## ").append(title).append(" (").append(definitions.size()).append(")\n");
         if (definitions.size() > 0) {
             builder.append("| CVE | URL |\n");
             builder.append("| --- | --- |\n");
@@ -27,8 +27,7 @@ public class MarkdownReportGenerator {
             if (definition.getMetadata().getReference() != null && definition.getMetadata().getReference().getRefUrl() != null) {
                 url = definition.getMetadata().getReference().getRefUrl();
             }
-            builder.append("|" + definition.getMetadata().getTitle() +
-                    "|[" + url + "](" + url + ")|\n");
+            builder.append("|").append(definition.getMetadata().getTitle()).append("|[").append(url).append("](").append(url).append(")|\n");
         });
         builder.append("\n");
     }

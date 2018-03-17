@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
-import java.lang.System;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -81,9 +80,7 @@ public class OvalResults {
         Set<String> ids = new HashSet<>();
         tests.stream().filter(test -> !"oval:org.debian.oval:tst:1".equals(test.getTestId()) &&
                 test.getTestedItem() != null &&
-                test.getTestedItem().isResult()).forEach(test -> {
-            ids.add(test.getTestId());
-        });
+                test.getTestedItem().isResult()).forEach(test -> ids.add(test.getTestId()));
         List<Definition> result = new ArrayList<>(ids.size());
         ids.forEach(testRef -> {
             String id = getResults().getSystem().getDefinitionIdByTestReference(testRef);
@@ -96,7 +93,7 @@ public class OvalResults {
         List<Definition> failedDefinitions = getDefinitionsOfFailedTests();
         List<Definition> definitions = getOvalDefinitions().getDefinitions();
         List<Definition> result = new ArrayList<>(definitions);
-        failedDefinitions.forEach(definition -> result.remove(definition));
+        failedDefinitions.forEach(result::remove);
         return result;
     }
 

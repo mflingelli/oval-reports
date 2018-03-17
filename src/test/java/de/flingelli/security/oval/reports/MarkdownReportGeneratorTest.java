@@ -1,5 +1,6 @@
 package de.flingelli.security.oval.reports;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import javax.xml.bind.JAXBException;
@@ -13,8 +14,9 @@ public class MarkdownReportGeneratorTest {
     public void getScanReport() throws JAXBException, IOException {
         MarkdownReportGenerator generator = new MarkdownReportGenerator(getOvalResults());
         File file = File.createTempFile("scan_report", ".md");
+        file.deleteOnExit();
         Files.write(file.toPath(), generator.getScanReport().toString().getBytes());
-        file.delete();
+        Assert.assertTrue(file.length() > 0);
     }
 
     private OvalResults getOvalResults() throws JAXBException {
