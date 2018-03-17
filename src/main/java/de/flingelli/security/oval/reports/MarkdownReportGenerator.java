@@ -3,7 +3,7 @@ package de.flingelli.security.oval.reports;
 import java.util.List;
 
 public class MarkdownReportGenerator {
-    private OvalResults ovalResults;
+    private final OvalResults ovalResults;
 
     public MarkdownReportGenerator(OvalResults ovalResults) {
         this.ovalResults = ovalResults;
